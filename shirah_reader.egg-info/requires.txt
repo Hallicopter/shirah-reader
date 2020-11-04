@@ -1,0 +1,4 @@
+EbookLib
+beautifulsoup4
+syllables
+termcolor

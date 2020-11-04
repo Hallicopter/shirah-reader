@@ -1,7 +1,10 @@
-from src.reader import set_speed, read_from_file, read_text
+#!/usr/bin/env python3
+
+from reader import set_speed, read_from_file, read_text
 import argparse
 
-if __name__ == "__main__":
+
+def main():
     desc = "Shirah is a terminal speed reader."
     parser = argparse.ArgumentParser(description=desc)
 
@@ -31,3 +34,7 @@ if __name__ == "__main__":
         read_from_file(parser.parse_args().file)
     else:
         read_text(TEST, parser.parse_args().speed)
+
+
+if __name__ == "__main__":
+    main()
