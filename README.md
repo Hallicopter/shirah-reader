@@ -12,7 +12,21 @@ Ignore the haters, and try it for yourself.
 Also, I don't like that the best options on a computer are paid softwares.
 
 ### Usage
+To install, use either 
 
+```pip install shirah-reader==0.1.1```
+
+or
+
+```pip3 install shirah-reader==0.1.1```
+
+To run a test, just enter `shirah`.
+
+To read a book, and set a speed, enter
+
+```shirah -f <path/to/book> -s <speed>```
+
+eg: `shirah -f alice.epub -s 600`
 
 ### Goals
 - [x] Read txt
