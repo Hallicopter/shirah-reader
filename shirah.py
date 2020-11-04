@@ -6,6 +6,9 @@ from termcolor import colored
 import argparse
 import threading
 import syllables
+import ebooklib 
+from ebooklib import epub
+from bs4 import BeautifulSoup
 
 
 TEST = """
@@ -69,12 +72,38 @@ def read_text(text):
             clear()
             quit()
 
+def chapter2text(chap):
+    blacklist = [   '[document]',   'noscript', 'header',   'html', 'meta', 'head','input', 'script',   ]
+    output = ''
+    soup = BeautifulSoup(chap, 'html.parser')
+    text = soup.find_all(text=True)
+    for t in text:
+        if t.parent.name not in blacklist:
+            output += '{} '.format(t)
+    return output
+
+def epub2text(filename):
+    book = epub.read_epub(filename)
+    chapters = []
+
+    for item in book.get_items():
+        if item.get_type() == ebooklib.ITEM_DOCUMENT:
+            chapters.append(chapter2text(item.get_content()))
+
+    return chapters
 
 def read_from_file(filename):
-    f = open(filename, "r")
-    clear = lambda: os.system("clear")
-    for text in f.readlines():
-        read_text(text)
+
+    if filename.split('.')[-1] == 'txt':
+        f = open(filename, "r")
+        clear = lambda: os.system("clear")
+        for text in f.readlines():
+            read_text(text)
+    elif filename.split('.')[-1] == 'epub':
+        chapters = epub2text(filename)
+        for text in chapters:
+            read_text(text)
+
 
 
 if __name__ == "__main__":
