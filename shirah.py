@@ -61,10 +61,13 @@ def read_text(text):
     except KeyboardInterrupt as e:
         clear()
         print("Current wpm:", wpm)
-        keybinding_msg = "Press enter to continue. \nPress ctrl+c to exit.\nEnter a number to change reading speed: "
+        keybinding_msg = "Press enter to continue. \nPress ctrl+c to exit.\nPress v to view current phrase. \nEnter a number to change reading speed\nInput:  "
         try:
             option = input(keybinding_msg)
-            if option:
+            if option and option == 'v':
+                print(text)
+                input("Press enter to continue")
+            else:
                 wpm = int(option)
         except ValueError as e:
             pass
@@ -101,8 +104,9 @@ def read_from_file(filename):
             read_text(text)
     elif filename.split('.')[-1] == 'epub':
         chapters = epub2text(filename)
-        for text in chapters:
-            read_text(text)
+        for chapter in chapters:
+            for text in chapter.split('\n'):
+                read_text(text)
 
 
 
