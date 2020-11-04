@@ -6,7 +6,7 @@ from termcolor import colored
 import argparse
 import threading
 import syllables
-import ebooklib 
+import ebooklib
 from ebooklib import epub
 from bs4 import BeautifulSoup
 
@@ -64,7 +64,7 @@ def read_text(text):
         keybinding_msg = "Press enter to continue. \nPress ctrl+c to exit.\nPress v to view current phrase. \nEnter a number to change reading speed\nInput:  "
         try:
             option = input(keybinding_msg)
-            if option and option == 'v':
+            if option and option == "v":
                 print(text)
                 input("Press enter to continue")
             else:
@@ -75,15 +75,26 @@ def read_text(text):
             clear()
             quit()
 
+
 def chapter2text(chap):
-    blacklist = [   '[document]',   'noscript', 'header',   'html', 'meta', 'head','input', 'script',   ]
-    output = ''
-    soup = BeautifulSoup(chap, 'html.parser')
+    blacklist = [
+        "[document]",
+        "noscript",
+        "header",
+        "html",
+        "meta",
+        "head",
+        "input",
+        "script",
+    ]
+    output = ""
+    soup = BeautifulSoup(chap, "html.parser")
     text = soup.find_all(text=True)
     for t in text:
         if t.parent.name not in blacklist:
-            output += '{} '.format(t)
+            output += "{} ".format(t)
     return output
+
 
 def epub2text(filename):
     book = epub.read_epub(filename)
@@ -95,19 +106,19 @@ def epub2text(filename):
 
     return chapters
 
+
 def read_from_file(filename):
 
-    if filename.split('.')[-1] == 'txt':
+    if filename.split(".")[-1] == "txt":
         f = open(filename, "r")
         clear = lambda: os.system("clear")
         for text in f.readlines():
             read_text(text)
-    elif filename.split('.')[-1] == 'epub':
+    elif filename.split(".")[-1] == "epub":
         chapters = epub2text(filename)
         for chapter in chapters:
-            for text in chapter.split('\n'):
+            for text in chapter.split("\n"):
                 read_text(text)
-
 
 
 if __name__ == "__main__":
