@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="shirah_reader",
-    version="0.1.1",
+    version="1.0.0",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/hallicopter/shirah-reader",
@@ -17,7 +17,6 @@ setup(
     author_email="advait.raykar@gmail.com",
     license="MIT",
     classifiers=[
-        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
