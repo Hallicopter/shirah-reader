@@ -91,6 +91,9 @@ Key Binding:
 - [x] Progress bar.
 - [x] Chapter-wise Navigation
 
+## Name
+Named after the marathi name for the sweet dish [Kesari Bhat](https://en.wikipedia.org/wiki/Kesari_bat)
+
 ## Credits
 - ebooklib by Aleksandar Erkalović (https://github.com/aerkalov/ebooklib)
 - epy by Benawi Adha (https://github.com/wustho/epy)
