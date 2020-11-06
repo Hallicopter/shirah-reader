@@ -1,4 +1,6 @@
 # Shirah
+[![Downloads](https://pepy.tech/badge/shirah-reader)](https://pepy.tech/project/shirah-reader)
+
 A curses based terminal RSVP speed reader.
 
 ![Alt text](/assets/shirah.gif "Optional Title")
