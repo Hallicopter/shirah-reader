@@ -96,7 +96,7 @@ Named after the marathi name for the sweet dish [Kesari Bhat](https://en.wikiped
 
 ## Credits
 - ebooklib by Aleksandar Erkalović (https://github.com/aerkalov/ebooklib)
-- epy by Benawi Adha (https://github.com/wustho/epy)
+- epy by Benawi Adha (https://github.com/wustho/epy) (This guy did ALL the heavy lifting.)
 
 ### License
 ```
