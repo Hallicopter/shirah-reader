@@ -833,11 +833,11 @@ def loadstate():
     if os.getenv("HOME") is not None:
         homedir = os.getenv("HOME")
         if os.path.isdir(os.path.join(homedir, ".config")):
-            prefix = os.path.join(homedir, ".config", "epy")
+            prefix = os.path.join(homedir, ".config", "shirah")
         else:
-            prefix = os.path.join(homedir, ".epy")
+            prefix = os.path.join(homedir, ".shirah")
     elif os.getenv("USERPROFILE") is not None:
-        prefix = os.path.join(os.getenv("USERPROFILE"), ".epy")
+        prefix = os.path.join(os.getenv("USERPROFILE"), ".shirah")
     else:
         CFGFILE = os.devnull
         STATEFILE = os.devnull
