@@ -941,7 +941,9 @@ def rsvp(content, y):
     if COLORSUPPORT:
         chwin.bkgd(SCREEN.getbkgd())
 
+    last_position = 0
     for i, text in enumerate(content[y:]):
+        last_position = i
         try:
             time.sleep(0.1)
             for j, word in enumerate(text.strip().split()):
@@ -991,7 +993,7 @@ def rsvp(content, y):
             except KeyboardInterrupt as e:
                 return y + i
 
-    return None, None, None
+    return y + last_position
 
 
 @text_win
